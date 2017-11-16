@@ -1,6 +1,7 @@
 ---
 title: Welcome to Janesh Devkota's page
 author: ~
+date: '2017-11-15'
 slug: about
 categories: []
 tags: []
@@ -12,7 +13,7 @@ I am a water resources / environmental engineer currently working in Dynamic Sol
 
 I am a passionate scientist who loves explaining data science / data visualization to non-technical business audiences.
 
-## Certifications
+## Data Science Certifications
 
 1. Data Analysis by Jeff Leek from John Hopkins University. Certificate earned on March 22, 2013. [See Certificate](#)
 2. Hadoop Platform and Application Framework by University of California, San Diego on Coursera. Certificate earned on November 8, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/ZCGQY78573EE)
