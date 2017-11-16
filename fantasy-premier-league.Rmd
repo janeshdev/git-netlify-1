@@ -1,13 +1,14 @@
 ---
-title: Analyzing Fantasy Premier League Data Using R
+title: Fantasy Premier Leage Analysis in R
 author: ~
 date: '2017-11-15'
 thumbnailImagePosition: left
 thumbnailImage: https://snag.gy/2wEaTP.jpg
-slug: fpl_R
+slug: fantasy-premier-league
 categories: []
 tags: []
 ---
+
 
 This is my first blog on data science topics. In this blog post, I will show you 
 how to import the data from `fantasy premier league` into R and perform exploratory 

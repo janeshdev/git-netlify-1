@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Analyzing Fantasy Premier League Data Using R</title>
-      <link>/2017/11/fpl_r/</link>
+      <title>Fantasy Premier Leage Analysis in R</title>
+      <link>/2017/11/fantasy-premier-league/</link>
       <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/fpl_r/</guid>
-      <description>This is my first blog on data science topics. In this blog post, I will show you how to import the data from fantasy premier league into R and perform exploratory data analysis.
+      <guid>/2017/11/fantasy-premier-league/</guid>
+      <description>This is my first blog on data science topics. In this blog post, I will show you how to import the data from fantasy premier league into R and perform exploratory data analysis. ————-
 The questions that came up in my mind before doing this analysis are:
 How has Wayne Rooney been performing for the last several years ?How do Romelu Lukaku, Sergio Aguero, Harry Kane line up side by side ?</description>
     </item>
