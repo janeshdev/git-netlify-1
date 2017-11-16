@@ -1,46 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Janesh Devkota&#39;s Garden</title>
-    <link>/</link>
-    <description>Recent content on Janesh Devkota&#39;s Garden</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 15 Nov 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Fantasy Premier Leage Analysis in R</title>
-      <link>/2017/11/fantasy-premier-league/</link>
-      <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/11/fantasy-premier-league/</guid>
-      <description>This is my first blog on data science topics. In this blog post, I will show you how to import the data from fantasy premier league into R and perform exploratory data analysis. ————-
-The questions that came up in my mind before doing this analysis are:
-How has Wayne Rooney been performing for the last several years ?How do Romelu Lukaku, Sergio Aguero, Harry Kane line up side by side ?</description>
-    </item>
-    
-    <item>
-      <title>Publications / Presentations / Project Experience</title>
-      <link>/publications/</link>
-      <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/publications/</guid>
-      <description>PublicationsDevkota, J., Fang, X., and Fang, V. Z. (2013). “Response characteristics of Perdido and Wolf Bay system to inflows and sea level rise.” British Journal of Environment and Climate Change, 3(2), 229-256.Devkota, J., and Fang, X. (2014). “Numerical simulation of flow dynamics in a tidal river under various upstream hydrologic conditions.” Hydrological Sciences Journal, 1-24.Devkota, J., and Fang, X. (2015). “Quantification of Water and Salt Exchanges in a Tidal Estuary.</description>
-    </item>
-    
-    <item>
-      <title>Welcome to Janesh Devkota&#39;s page</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Welcome to Janesh Devkota’s page.
-I am a water resources / environmental engineer currently working in Dynamic Solutions International LLC in Edmonds, WA. I completed his PhD from Auburn University in 2014 and completed masters in Civil Engineering (MCE) from Auburn University in Summer 2012. During my PhD in Auburn, I worked on number of projects that required numerical modeling, data analysis, data munging and data visualization.
-I am a passionate scientist who loves explaining data science / data visualization to non-technical business audiences.</description>
-    </item>
-    
-  </channel>
-</rss>
