@@ -3,44 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>janeshdevkota.com/2017/11/fantasy-premier-league/</loc>
+    <loc>/2017/11/fantasy-premier-league/</loc>
     <lastmod>2017-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>janeshdevkota.com/publications/</loc>
+    <loc>/publications/</loc>
     <lastmod>2017-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>janeshdevkota.com/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2017-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>janeshdevkota.com/archives/</loc>
+    <loc>/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>janeshdevkota.com/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>janeshdevkota.com/</loc>
-    <lastmod>2017-11-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>janeshdevkota.com/post/</loc>
+    <loc>/</loc>
     <lastmod>2017-11-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>janeshdevkota.com/tags/</loc>
+    <loc>/post/</loc>
+    <lastmod>2017-11-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
