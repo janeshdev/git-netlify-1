@@ -1,5 +1,5 @@
 ---
-title: Fantasy Premier Leage Analysis in R
+title: Fantasy Premier League Analysis in R
 author: ~
 date: '2017-11-15'
 thumbnailImagePosition: left
