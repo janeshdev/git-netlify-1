@@ -15,12 +15,13 @@ I am a passionate scientist who loves explaining data science / data visualizati
 
 ## Data Science Certifications
 
-1. Data Analysis by Jeff Leek from John Hopkins University. Certificate earned on March 22, 2013. [See Certificate](#)
+1. Data Analysis by Jeff Leek from John Hopkins University. Certificate earned on March 22, 2013. [See Certificate](/coursera_data-analysis_2013.pdf)
 2. Hadoop Platform and Application Framework by University of California, San Diego on Coursera. Certificate earned on November 8, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/ZCGQY78573EE)
 3. Applied Machine Learning in Python by University of Michigan on Coursera. Certificate earned on November 14, 2017.[See Certificate](https://www.coursera.org/account/accomplishments/certificate/HZCZSCN935H9)
+4. Getting and Cleaning Data by John Hopkins University on Coursera. Certificate earned on November 19, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/N7XKL4FNPM49)
 
 ## Contact me: 
 
 * [Email](mailto::janesh.devkota@gmail.com)
 * [LinkedIn](https://www.linkedin.com/in/janesh-devkota-b3b60644/)
-* [Twitter](www.twitter.com/janeshdev)
+* [Twitter](https://www.twitter.com/janeshdev)
