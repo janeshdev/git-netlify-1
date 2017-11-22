@@ -1,13 +1,11 @@
 ---
-title: Welcome to Janesh Devkota's page
+title: Welcome to my page
 author: ~
 date: '2017-11-15'
 slug: about
 categories: []
 tags: []
 ---
-
-Welcome to Janesh Devkota's page. 
 
 I am a water resources / environmental engineer currently working in Dynamic Solutions International LLC in Edmonds, WA. I completed his PhD from Auburn University in 2014 and completed masters in Civil Engineering (MCE) from Auburn University in Summer 2012. During my PhD in Auburn, I worked on number of projects that required **numerical modeling, data analysis, data munging and data visualization**. 
 
