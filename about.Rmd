@@ -15,11 +15,11 @@ I am a passionate scientist who loves explaining data science / data visualizati
 
 ## Data Science Certifications
 
-1. Data Analysis by Jeff Leek from John Hopkins University. Certificate earned on March 22, 2013. [See Certificate](/coursera_data-analysis_2013.pdf)
-2. Hadoop Platform and Application Framework by University of California, San Diego on Coursera. Certificate earned on November 8, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/ZCGQY78573EE)
-3. Applied Machine Learning in Python by University of Michigan on Coursera. Certificate earned on November 14, 2017.[See Certificate](https://www.coursera.org/account/accomplishments/certificate/HZCZSCN935H9)
-4. Getting and Cleaning Data by John Hopkins University on Coursera. Certificate earned on November 19, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/N7XKL4FNPM49)
-5. Neural Networks and Deep Learning by deeplearning.ai on Coursera. Instructor Andrew Ng. Cerfiticate earned on November 22, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/KWHYWNZM4ZP6)
+1. **Data Analysis** by Jeff Leek from John Hopkins University. Certificate earned on March 22, 2013. [See Certificate](/coursera_data-analysis_2013.pdf)
+2. **Hadoop Platform and Application Framework** by University of California, San Diego on Coursera. Certificate earned on November 8, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/ZCGQY78573EE)
+3. **Applied Machine Learning in Python** by University of Michigan on Coursera. Certificate earned on November 14, 2017.[See Certificate](https://www.coursera.org/account/accomplishments/certificate/HZCZSCN935H9)
+4. **Getting and Cleaning Data** by John Hopkins University on Coursera. Certificate earned on November 19, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/N7XKL4FNPM49)
+5. **Neural Networks and Deep Learning** by deeplearning.ai on Coursera. Instructor Andrew Ng. Cerfiticate earned on November 22, 2017. [See Certificate](https://www.coursera.org/account/accomplishments/certificate/KWHYWNZM4ZP6)
 
 ## Contact me: 
 
