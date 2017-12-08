@@ -52,7 +52,7 @@
     
 
     
-      <meta property="og:image" content="https://snag.gy/PNL65t.jpg">
+      <meta property="og:image" content="https://snag.gy/mA34dw.jpg">
     
     
     
@@ -301,7 +301,8 @@ str(all_month)</code></pre>
 ##  $ place    : chr  &quot;23km S of Alberto Oviedo Mota, B.C., MX&quot; &quot;4km NE of `Alaqahdari-ye Kiran wa Munjan, Afghanistan&quot; &quot;9km SSE of Boyuibe, Bolivia&quot; &quot;Northern Mid-Atlantic Ridge&quot; ...
 ##  $ type     : chr  &quot;earthquake&quot; &quot;earthquake&quot; &quot;earthquake&quot; &quot;earthquake&quot; ...</code></pre>
 <p>Let’s visualize our unprocessed data using <code>visdat</code> package:</p>
-<pre class="r"><code>#visdat::vis_dat(all_month, palette = &quot;qual&quot;, sort_type = FALSE, warn_large_data = FALSE)</code></pre>
+<pre class="r"><code>visdat::vis_dat(all_month, palette = &quot;qual&quot;, sort_type = FALSE, warn_large_data = FALSE)</code></pre>
+<p><img src="/post/2017-12-05-2015-earthquake-in-nepal-data-analysis-and-implications_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>It is a really nice way to see our variables and observations in a graphical form. We can see that variables <code>nst</code>, <code>gap</code>, and <code>dmin</code> have a lot of missing data.</p>
 <p>Let’s look at head of the dataset:</p>
 <pre class="r"><code>head(all_month)</code></pre>
