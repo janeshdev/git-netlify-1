@@ -1,5 +1,5 @@
 ---
-title: '2015 Earthquake in Nepal : Data Analysis and Implications'
+title: '2015 Earthquake in Nepal : Earthquake magnitude and Casualty Analysis'
 author: ~
 date: '2017-12-05'
 slug: 2015-earthquake-in-nepal-data-analysis-and-implications
