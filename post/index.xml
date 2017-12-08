@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Janesh Devkota&#39;s Garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2015 Earthquake in Nepal : Data Analysis and Implications</title>
+      <link>/2017/12/2015-earthquake-in-nepal-data-analysis-and-implications/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/2015-earthquake-in-nepal-data-analysis-and-implications/</guid>
+      <description>In this blogpost, I am going to take the earthquake data from April 2015 to May 2016 throughout the World. Then we will process the data in usable form and look at the data on Nepal. Later, we will also dive into the casualties from this devastating earthquake. We will look at how many people died, got injured from which district, using ggplot2, wordcloud and leaflet package.</description>
+    </item>
     
     <item>
       <title>Fantasy Premier League Analysis in R</title>
