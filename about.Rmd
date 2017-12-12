@@ -25,6 +25,9 @@ Andrew Ng. Certificate earned on December 1, 2017. [See Certificate](https://www
 
 ### Data Camp Certifications
 * **Sentiment Analysis in R: The tidy Way Course** by Julia Silge on DataCamp. [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/2cd9bf4f0f0fd6eff63127e196610a14610b8b61)
+* **Intro to SQL for Data Science** on DataCamp. [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/f195cb2bdcc5b078ad8b7a50d86c06f0f34b2339)
+* **Introduction to Time Series Analysis**. [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/8077bbacc7dc790d8f02e0c4c53c72f52cd4d769)
+* **Foundations of Probability in R** by David Robinson. [Certificate URL](https://www.datacamp.com/statement-of-accomplishment/course/106d347a2e29176bed79409ace9a094d6550545a)
 
 ## Contact me: 
 
