@@ -9,7 +9,6 @@ categories: []
 tags: []
 ---
 
-
 In this blogpost, I am going to take the earthquake data from April 2015 to 
 May 2016 throughout the World. Then we will process the data in usable form and 
 look at the data on Nepal. Later, we will also dive into the casualties from this 
