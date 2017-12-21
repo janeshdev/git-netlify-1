@@ -109,7 +109,7 @@ image we will use text in column `name` as the name of the flash card image.
 While we have separated the link that contains the link of the image, the actual 
 link that can be used to download image needs to be extracted from html of the pages. 
 
-Let us use the link `https://t.co/l8ZhhzAytA` from the above dataframe to extract the link. 
+Let us use the link `https://t.co/l8ZhhzAytA` from the above data frame to extract the link. 
 
 ```{r}
 url <- "https://t.co/l8ZhhzAytA"
@@ -130,14 +130,10 @@ url %>%
   rvest::html_nodes('div.js-adaptive-photo') %>% 
   as.character() %>%
 strsplit(split = "\\ ") %>% 
-     unlist() #%>% 
-    # .[5] %>% 
-    # gsub(pattern = "data-image-url", replacement = "") %>% 
-    # gsub(pattern = "\\=", replacement = "") %>% 
-    # gsub(pattern = '\"', replacement = "")
+     unlist() 
 ```
 From the output above, we can see that there are two elements `5` and `12` that 
-has the image download link that we are intested. I am going to use the 5th element 
+has the image download link that we are interested. I am going to use the 5th element 
 to extract the link. The complete code for the url we chose is as follows:
 
 ```{r}

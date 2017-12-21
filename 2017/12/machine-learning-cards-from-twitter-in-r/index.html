@@ -285,14 +285,14 @@ library(dplyr)</code></pre>
 <pre class="r"><code># Look at head of albon dataframe
 head(albon)</code></pre>
 <pre><code>## # A tibble: 6 x 68
-##            status_id          created_at    user_id    screen_name
-##                &lt;chr&gt;              &lt;dttm&gt;      &lt;chr&gt;          &lt;chr&gt;
-## 1 943680124007866369 2017-12-21 03:10:48   59507236      janeshdev
-## 2 943679498062479360 2017-12-21 03:08:19 2339596093 KirstenSherwin
-## 3 943679414872702976 2017-12-21 03:07:59   46588390        Paceaux
-## 4 943678561302523904 2017-12-21 03:04:36  260542043    CherFeldman
-## 5 943677532875968512 2017-12-21 03:00:31   17078744      NikiDoyle
-## 6 943677189173792769 2017-12-21 02:59:09  917677130      Janerette
+##            status_id          created_at    user_id  screen_name
+##                &lt;chr&gt;              &lt;dttm&gt;      &lt;chr&gt;        &lt;chr&gt;
+## 1 943732332824969216 2017-12-21 06:38:16  473718208      SHiggan
+## 2 943732329226305536 2017-12-21 06:38:15    6024272 sergeimuller
+## 3 943732314663776257 2017-12-21 06:38:12   19340488      jortheo
+## 4 943730962243862528 2017-12-21 06:32:49 2990872965     SETIEric
+## 5 943729686881996800 2017-12-21 06:27:45  614046734    jdparaujo
+## 6 943727710685163520 2017-12-21 06:19:54   14643231    alanmimms
 ## # ... with 64 more variables: text &lt;chr&gt;, source &lt;chr&gt;,
 ## #   display_text_width &lt;dbl&gt;, reply_to_status_id &lt;chr&gt;,
 ## #   reply_to_user_id &lt;chr&gt;, reply_to_screen_name &lt;chr&gt;, is_quote &lt;lgl&gt;,
@@ -320,7 +320,7 @@ head(albon)</code></pre>
 ## #   country &lt;chr&gt;, country_code &lt;chr&gt;, geo_coords &lt;list&gt;,
 ## #   coords_coords &lt;list&gt;, bbox_coords &lt;list&gt;</code></pre>
 <pre class="r"><code>dim(albon)</code></pre>
-<pre><code>## [1] 2000   68</code></pre>
+<pre><code>## [1] 2100   68</code></pre>
 <pre class="r"><code># We could also use the following but I wanted to see the tweets from Chris Albon
 # albon1 &lt;- rtweet::search_tweets(q = &quot;machinelearningflashcards.com&quot;, 
 #                                 include_rts = FALSE, 
@@ -328,20 +328,20 @@ head(albon)</code></pre>
 <p>We have got a tibble with 2000 observations and 68 columns. Now, let’s look at the actual tweets. We will be looking at the column <code>text</code> as it has the text of the tweet.</p>
 <pre class="r"><code># Text of tweet
 albon[, &quot;text&quot;]</code></pre>
-<pre><code>## # A tibble: 2,000 x 1
-##                                                                           text
-##                                                                          &lt;chr&gt;
-##  1 &quot;Download machine learning cards posted by @chrisalbon in R #rstats \nhttps
-##  2 Can confirm after spending a Thanksgiving, 4th of July and Christmas holed 
-##  3                              @chrisalbon Truer words have never been spoken
-##  4            @chrisalbon The devs at @Poshmarkapp didnt get this memo. Haha.
-##  5    Please, my sanity and yours, LISTEN TO THIS GUY. https://t.co/TLgXpOOOVM
-##  6 @chrisalbon Plus also it&#39;s still Mercury Retrograde for another three days.
-##  7 Truth. Or in my case, sitting in a McDonald&#39;s parking lot stealing their wi
-##  8 Ha ha...Reminded of X.Mas 2012. The blame was on the 2 line mainframe cobol
-##  9                                       &quot;:/ ~~~~\\o/ https://t.co/1nAoqKTxSh&quot;
-## 10                                       #ReadOnlyWeek https://t.co/K5a8VD2PyQ
-## # ... with 1,990 more rows</code></pre>
+<pre><code>## # A tibble: 2,100 x 1
+##                                                                                  text
+##                                                                                 &lt;chr&gt;
+##  1        @chrisalbon ..... for the love of god.. we tried, but the client escalated 
+##  2 &quot;@chrisalbon \xf0\u009f\u0091\u008d\xf0\u009f\u008f&lt;U+00BE&gt; my company has a code 
+##  3                                                   Wise man https://t.co/eGpk9gjuZ9
+##  4                                    Been there.  Done that. https://t.co/FNd21DZD8y
+##  5        &quot;When you have to work from your significant others old bedroom \xf0\u009f
+##  6                                                 @chrisalbon Been there. Done that.
+##  7                                      &quot;@chrisalbon Too late \xf0\u009f\u0098\u008a&quot;
+##  8                                @chrisalbon @MystyVander We deployed last night tho
+##  9        @chrisalbon Pelican. Hugo is pretty nice too, but I only use it with Rs bl
+## 10        or deploy and artfully walk away from that spouse &amp;amp; racist uncle https:
+## # ... with 2,090 more rows</code></pre>
 <p>We are interested in the tweets that has images and url <code>machinelearningcards.com</code>. You will notice that all the images / links in Twitter are renamed with the prefix “<a href="https://t.co/" class="uri">https://t.co/</a>”. After some observations, I found out that twitter renamed the website <code>machinelearningflashcards.com</code> as <code>https://t.co/eZ2bbpDzwV</code>. So, let’s use this link as our pattern and find the tweets that has the link. We are going to use <code>grep</code> function to find the pattern in the <code>text</code> column.</p>
 <pre class="r"><code>pattern &lt;- &quot;https://t.co/eZ2bbpDzwV&quot;
 # Create a new dataframe with only text as the column
@@ -415,7 +415,7 @@ machine_learning[, c(&quot;url&quot;, &quot;name&quot;)]</code></pre>
 <div id="use-of-rvest-package-to-extract-info-from-link" class="section level3">
 <h3>Use of rvest package to extract info from link</h3>
 <p>While we have separated the link that contains the link of the image, the actual link that can be used to download image needs to be extracted from html of the pages.</p>
-<p>Let us use the link <code>https://t.co/l8ZhhzAytA</code> from the above dataframe to extract the link.</p>
+<p>Let us use the link <code>https://t.co/l8ZhhzAytA</code> from the above data frame to extract the link.</p>
 <pre class="r"><code>url &lt;- &quot;https://t.co/l8ZhhzAytA&quot;
 url %&gt;% 
   read_html() %&gt;% 
@@ -428,7 +428,7 @@ url %&gt;%
   rvest::html_nodes(&#39;div.js-adaptive-photo&#39;) %&gt;% 
   as.character() %&gt;%
 strsplit(split = &quot;\\ &quot;) %&gt;% 
-     unlist() #%&gt;% </code></pre>
+     unlist() </code></pre>
 <pre><code>##  [1] &quot;&lt;div&quot;                                                              
 ##  [2] &quot;class=\&quot;AdaptiveMedia-photoContainer&quot;                              
 ##  [3] &quot;js-adaptive-photo&quot;                                                 
@@ -446,11 +446,7 @@ strsplit(split = &quot;\\ &quot;) %&gt;%
 ## [15] &quot;100%;&quot;                                                             
 ## [16] &quot;top:&quot;                                                              
 ## [17] &quot;-0px;\&quot;&gt;\n&lt;/div&gt;&quot;</code></pre>
-<pre class="r"><code>    # .[5] %&gt;% 
-    # gsub(pattern = &quot;data-image-url&quot;, replacement = &quot;&quot;) %&gt;% 
-    # gsub(pattern = &quot;\\=&quot;, replacement = &quot;&quot;) %&gt;% 
-    # gsub(pattern = &#39;\&quot;&#39;, replacement = &quot;&quot;)</code></pre>
-<p>From the output above, we can see that there are two elements <code>5</code> and <code>12</code> that has the image download link that we are intested. I am going to use the 5th element to extract the link. The complete code for the url we chose is as follows:</p>
+<p>From the output above, we can see that there are two elements <code>5</code> and <code>12</code> that has the image download link that we are interested. I am going to use the 5th element to extract the link. The complete code for the url we chose is as follows:</p>
 <pre class="r"><code>url %&gt;% 
   read_html() %&gt;% 
   rvest::html_nodes(&#39;div.js-adaptive-photo&#39;) %&gt;% 
