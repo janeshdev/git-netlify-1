@@ -255,7 +255,12 @@
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>I have been following Chris Albon on Twitter and have seen some really nice looking machine learning cards on his Twitter. While one can go to his <a href="http://machinelearningflashcards.com">website</a> and buy all the cards he has produced. However, I was curious to see if I could download those flash cards in R. So, I started looking for a R package that would help to download the tweets by Chris Albon. I ended up using <code>rtweet</code> package for my analysis.</p>
-<p>The libraries that I would be using for this analysis are as follows: * rtweet : To import the tweets from Twitter to R. * dplyr : To do manipulation of tweets * rvest : To extract the information from web data</p>
+<p>The libraries that I would be using for this analysis are as follows:</p>
+<ul>
+<li>rtweet : To import the tweets from Twitter to R.</li>
+<li>dplyr : To do manipulation of tweets</li>
+<li>rvest : To extract the information from web data</li>
+</ul>
 <p>Let’s get started with <code>rtweet</code> package. First I am going to search for the tweets from Chris Albon.</p>
 <pre class="r"><code># Load Libraries
 library(rtweet)
@@ -277,20 +282,17 @@ library(dplyr)</code></pre>
 <pre><code>## Searching for tweets...</code></pre>
 <pre><code>## This may take a few seconds...</code></pre>
 <pre><code>## Finished collecting tweets!</code></pre>
-<pre><code>## Searching for tweets...</code></pre>
-<pre><code>## This may take a few seconds...</code></pre>
-<pre><code>## Finished collecting tweets!</code></pre>
 <pre class="r"><code># Look at head of albon dataframe
 head(albon)</code></pre>
 <pre><code>## # A tibble: 6 x 68
-##            status_id          created_at   user_id screen_name
-##                &lt;chr&gt;              &lt;dttm&gt;     &lt;chr&gt;       &lt;chr&gt;
-## 1 943678561302523904 2017-12-21 03:04:36 260542043 CherFeldman
-## 2 943677532875968512 2017-12-21 03:00:31  17078744   NikiDoyle
-## 3 943677189173792769 2017-12-21 02:59:09 917677130   Janerette
-## 4 943677013034000384 2017-12-21 02:58:27 111506507 reneevaldez
-## 5 943676879566802944 2017-12-21 02:57:55 134572409 rajagopalcv
-## 6 943676751372156928 2017-12-21 02:57:24  14756900      ialexs
+##            status_id          created_at    user_id    screen_name
+##                &lt;chr&gt;              &lt;dttm&gt;      &lt;chr&gt;          &lt;chr&gt;
+## 1 943680124007866369 2017-12-21 03:10:48   59507236      janeshdev
+## 2 943679498062479360 2017-12-21 03:08:19 2339596093 KirstenSherwin
+## 3 943679414872702976 2017-12-21 03:07:59   46588390        Paceaux
+## 4 943678561302523904 2017-12-21 03:04:36  260542043    CherFeldman
+## 5 943677532875968512 2017-12-21 03:00:31   17078744      NikiDoyle
+## 6 943677189173792769 2017-12-21 02:59:09  917677130      Janerette
 ## # ... with 64 more variables: text &lt;chr&gt;, source &lt;chr&gt;,
 ## #   display_text_width &lt;dbl&gt;, reply_to_status_id &lt;chr&gt;,
 ## #   reply_to_user_id &lt;chr&gt;, reply_to_screen_name &lt;chr&gt;, is_quote &lt;lgl&gt;,
@@ -329,16 +331,16 @@ albon[, &quot;text&quot;]</code></pre>
 <pre><code>## # A tibble: 2,000 x 1
 ##                                                                           text
 ##                                                                          &lt;chr&gt;
-##  1            @chrisalbon The devs at @Poshmarkapp didnt get this memo. Haha.
-##  2    Please, my sanity and yours, LISTEN TO THIS GUY. https://t.co/TLgXpOOOVM
-##  3 @chrisalbon Plus also it&#39;s still Mercury Retrograde for another three days.
-##  4 Truth. Or in my case, sitting in a McDonald&#39;s parking lot stealing their wi
-##  5 Ha ha...Reminded of X.Mas 2012. The blame was on the 2 line mainframe cobol
-##  6                                       &quot;:/ ~~~~\\o/ https://t.co/1nAoqKTxSh&quot;
-##  7                                       #ReadOnlyWeek https://t.co/K5a8VD2PyQ
-##  8 @chrisalbon I have done 5 deploys this week and have at least six more. pra
-##  9 Deploying during holidays is ALWAYS a bad idea folks https://t.co/ZZMOzxtlP
-## 10                                          Lol truth. https://t.co/nQJyo2C1zk
+##  1 &quot;Download machine learning cards posted by @chrisalbon in R #rstats \nhttps
+##  2 Can confirm after spending a Thanksgiving, 4th of July and Christmas holed 
+##  3                              @chrisalbon Truer words have never been spoken
+##  4            @chrisalbon The devs at @Poshmarkapp didnt get this memo. Haha.
+##  5    Please, my sanity and yours, LISTEN TO THIS GUY. https://t.co/TLgXpOOOVM
+##  6 @chrisalbon Plus also it&#39;s still Mercury Retrograde for another three days.
+##  7 Truth. Or in my case, sitting in a McDonald&#39;s parking lot stealing their wi
+##  8 Ha ha...Reminded of X.Mas 2012. The blame was on the 2 line mainframe cobol
+##  9                                       &quot;:/ ~~~~\\o/ https://t.co/1nAoqKTxSh&quot;
+## 10                                       #ReadOnlyWeek https://t.co/K5a8VD2PyQ
 ## # ... with 1,990 more rows</code></pre>
 <p>We are interested in the tweets that has images and url <code>machinelearningcards.com</code>. You will notice that all the images / links in Twitter are renamed with the prefix “<a href="https://t.co/" class="uri">https://t.co/</a>”. After some observations, I found out that twitter renamed the website <code>machinelearningflashcards.com</code> as <code>https://t.co/eZ2bbpDzwV</code>. So, let’s use this link as our pattern and find the tweets that has the link. We are going to use <code>grep</code> function to find the pattern in the <code>text</code> column.</p>
 <pre class="r"><code>pattern &lt;- &quot;https://t.co/eZ2bbpDzwV&quot;

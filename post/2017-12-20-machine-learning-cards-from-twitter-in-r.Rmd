@@ -15,6 +15,7 @@ to download the tweets by Chris Albon. I ended up using `rtweet` package for my
 analysis. 
 
 The libraries that I would be using for this analysis are as follows: 
+
 * rtweet : To import the tweets from Twitter to R.
 * dplyr  : To do manipulation of tweets
 * rvest  : To extract the information from web data
