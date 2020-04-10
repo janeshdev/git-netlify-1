@@ -233,13 +233,15 @@ drive is `JD_Key Government Figures - Nepal Earthquake - 2015.xlsx`
 
 ```{r}
 # Use library googlesheets to read Nepal earthquake data
-library(googlesheets)
-
-# Authenticate googlesheets
-googlesheets::gs_auth()
-
-fatal <- gs_title(x = "JD_Key Government Figures - Nepal Earthquake - 2015.xlsx")
-fatalities <- googlesheets::gs_read(ss = fatal, ws = "05-June-2015")
+# library(googlesheets)
+# 
+# # Authenticate googlesheets
+# googlesheets::gs_auth()
+# 
+# fatal <- gs_title(x = "JD_Key Government Figures - Nepal Earthquake - 2015.xlsx")
+# fatalities <- googlesheets::gs_read(ss = fatal, ws = "05-June-2015")
+library(readxl)
+fatalities <- readxl::read_excel(path = "../../data/earthquake/JD_Key Government Figures - Nepal Earthquake - 2015.xlsx",sheet = "05-June-2015")
 ```
 
 We have to use the function `gs_auth()` first in order to aunthenticate the access 

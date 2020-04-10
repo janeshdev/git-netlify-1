@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30.2 with theme Tranquilpeak 0.4.3-BETA">
+    <meta name="generator" content="Hugo 0.66.0 with theme Tranquilpeak 0.4.3-BETA">
     <title>Spatial data and coordinate transformation in R</title>
     <meta name="author" content="Janesh Devkota">
     <meta name="keywords" content="">
@@ -259,57 +259,79 @@ I extensively use EFDC (Environmental Fluid Dynamic Code) model to do environmen
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>I come to these situations where I have to work with spatial datasets frequently. Sometimes the datasets is in lat-long format and sometimes on <code>UTM</code> (Universal transverse Mercator) coordinate or <code>state plane coordinate system</code>.</p>
-<p>I extensively use <code>EFDC</code> (Environmental Fluid Dynamic Code) model to do environmental modeling and have to convert the data into UTM coordinate system. I had used CORPSCON in the past but as an R enthusiast I wanted to dig deeper in R and finad a way to do the transformation in R environment. Thankfully, I figured out that if we use the packages <code>sp</code>, <code>rgdal</code>, and <code>raster</code>, we can be able to convert the dataset (tiff or any x, y, z file) into lat-long / eastings-northings format.</p>
+              
+
+
+<p>I come to these situations where I have to work with spatial datasets frequently.
+Sometimes the datasets is in lat-long format and sometimes on <code>UTM</code> (Universal
+transverse Mercator) coordinate or
+<code>state plane coordinate system</code>.</p>
+<p>I extensively use <code>EFDC</code> (Environmental Fluid
+Dynamic Code) model to do environmental modeling and have to convert the data
+into UTM coordinate system. I had used CORPSCON in the past but as an R enthusiast
+I wanted to dig deeper in R and finad a way to do the transformation in R environment.
+Thankfully, I figured out that if we use the packages <code>sp</code>, <code>rgdal</code>, and <code>raster</code>, we
+can be able to convert the dataset (tiff or any x, y, z file) into
+lat-long / eastings-northings format.</p>
 <div id="data-download" class="section level1">
 <h1>Data download</h1>
-<p>To demonstrate the spatial transformation feature, we will be using the Lake Victoria dataset. Let’s go ahead and download lake victoria bathymetry data from <code>Harvard</code> using this <a href="https://dataverse.harvard.edu/file.xhtml;jsessionid=11d6e23005e3e8e991b3dca35921?fileId=3074951&amp;version=RELEASED&amp;version=.0">link</a></p>
-<p>I have saved tehe data as <code>LV_Bathy_V6_1.tif</code> and the size of the file is <code>48.9 MB</code>. If you want to download the data with R uncomment the first couple lines in the code below.</p>
-<p>Please install the packages if you don’t have these packages in your machine. You can use <code>install.packages(c(&quot;raster&quot;, &quot;sp&quot;, &quot;rgdal&quot;))</code> to bulk download the packages.</p>
+<p>To demonstrate the spatial transformation feature, we will be using the Lake Victoria
+dataset. Let’s go ahead and download lake victoria bathymetry data from <code>Harvard</code> using
+this <a href="https://dataverse.harvard.edu/file.xhtml;jsessionid=11d6e23005e3e8e991b3dca35921?fileId=3074951&amp;version=RELEASED&amp;version=.0">link</a></p>
+<p>I have saved tehe data as <code>LV_Bathy_V6_1.tif</code> and the size of the file is <code>48.9 MB</code>.
+If you want to download the data with R uncomment the first couple lines in the
+code below.</p>
+<p>Please install the packages if you don’t have these packages in your machine.
+You can use <code>install.packages(c(&quot;raster&quot;, &quot;sp&quot;, &quot;rgdal&quot;))</code> to bulk download the
+packages.</p>
 <pre class="r"><code>library(raster)</code></pre>
 <pre><code>## Loading required package: sp</code></pre>
 <pre class="r"><code>library(sp)
 library(rgdal)</code></pre>
-<pre><code>## rgdal: version: 1.2-16, (SVN revision 701)
+<pre><code>## rgdal: version: 1.4-8, (SVN revision 845)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.2.0, released 2017/04/28
-##  Path to GDAL shared files: C:/Users/DSI/Documents/R/win-library/3.3/rgdal/gdal
-##  GDAL binary built with GEOS: TRUE 
-##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-##  Path to PROJ.4 shared files: C:/Users/DSI/Documents/R/win-library/3.3/rgdal/proj
-##  Linking to sp version: 1.2-5</code></pre>
+##  Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
+##  Path to GDAL shared files: /Users/janeshd/Library/R/3.5/library/rgdal/gdal
+##  GDAL binary built with GEOS: FALSE 
+##  Loaded PROJ.4 runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
+##  Path to PROJ.4 shared files: /Users/janeshd/Library/R/3.5/library/rgdal/proj
+##  Linking to sp version: 1.3-2</code></pre>
 <pre class="r"><code>#download.file(url = &quot;https://dataverse.harvard.edu/api/access/datafile/3074951&quot;, 
 #              destfile = &quot;../../data/spatial_analysis/LV_Bathy_V6_1.tif&quot;)
 
 filepath &lt;- &quot;../../data/spatial_analysis/LV_Bathy_V6_1.tif&quot;
 victoria &lt;- raster(filepath)</code></pre>
-<p>Now that we have read the file in a raster <code>victoria</code>, let’s plot and see how the bathymetry looks like.</p>
+<p>Now that we have read the file in a raster <code>victoria</code>, let’s plot and see how the
+bathymetry looks like.</p>
 <pre class="r"><code>plot(victoria)</code></pre>
 <p><img src="http://janeshdevkota.com/post/2017-12-19-spatial-analysis-and-coordinate-transformation-in-r_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>In the above figure, you can see that the deeper portion of the lake has dark green shade and the shallow region has grey color contours.</p>
+<p>In the above figure, you can see that the deeper portion of the lake has dark
+green shade and the shallow region has grey color contours.</p>
 <div id="convert-raster-to-points" class="section level2">
 <h2>Convert raster to points</h2>
-<p>The raster dataset can be converted to <code>SpatialPointsDataFrame</code> using the <code>rasterToPoints</code> function in <code>raster</code> package.</p>
+<p>The raster dataset can be converted to <code>SpatialPointsDataFrame</code> using the
+<code>rasterToPoints</code> function in <code>raster</code> package.</p>
 <pre class="r"><code>victoria.pts &lt;- raster::rasterToPoints(x = victoria, spatial = TRUE)
 victoria.pts</code></pre>
 <pre><code>## class       : SpatialPointsDataFrame 
 ## features    : 5788449 
 ## extent      : 683898.6, 1020899, -310550.6, 48449.37  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=lcc +lat_1=20 +lat_2=-23 +lat_0=0 +lon_0=25 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## crs         : +proj=lcc +lat_1=20 +lat_2=-23 +lat_0=0 +lon_0=25 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 1
 ## names       :     LV_Bathy_V6_1 
 ## min values  : 0.839264631271362 
 ## max values  :  77.8775787353516</code></pre>
 <div id="change-projection-to-geographic-coordinate-system" class="section level3">
 <h3>Change projection to geographic coordinate system</h3>
-<p>The projection of the new dataset is <code>lcc</code> i.e, Projected Coordinate System: Africa Lambert Conformal Conic. Now, let’s go ahead and convert it to geographic coordinate system.</p>
+<p>The projection of the new dataset is <code>lcc</code> i.e, Projected Coordinate System: Africa Lambert Conformal Conic. Now, let’s
+go ahead and convert it to geographic coordinate system.</p>
 <pre class="r"><code>geo.prj &lt;- &quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;
 victoria.pts &lt;- spTransform(victoria.pts, CRS(geo.prj))
 victoria.pts</code></pre>
 <pre><code>## class       : SpatialPointsDataFrame 
 ## features    : 5788449 
 ## extent      : 31.60411, 34.85023, -3.002646, 0.4870742  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
+## crs         : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 1
 ## names       :     LV_Bathy_V6_1 
 ## min values  : 0.839264631271362 
@@ -325,7 +347,8 @@ victoria.pts</code></pre>
 </div>
 <div id="create-x-y-z-dataframe" class="section level3">
 <h3>Create x, y, z dataframe</h3>
-<p>Now let’s create x, y and z dataframe from the transformed data <code>victoria.pts</code>. The first column of <code>victoria.pts</code> is longitude and second column in latitude.</p>
+<p>Now let’s create x, y and z dataframe from the transformed data <code>victoria.pts</code>. The
+first column of <code>victoria.pts</code> is longitude and second column in latitude.</p>
 <pre class="r"><code>victoria.pts@data &lt;- data.frame(victoria.pts@data, long = coordinates(victoria.pts)[,1], 
                                 lat = coordinates(victoria.pts)[,2])
 # View head of the dataset
@@ -345,9 +368,12 @@ head(victoria.pts@data)</code></pre>
 ##  $ LV_Bathy_V6_1: num  5.51 5.52 5.52 5.51 5.51 ...
 ##  $ long         : num  33.4 33.4 33.4 33.4 33.4 ...
 ##  $ lat          : num  0.487 0.487 0.487 0.487 0.487 ...</code></pre>
-<p>If we want to convert lat long to UTM for lake victoria, we can use the following projection</p>
+<p>If we want to convert lat long to UTM for lake victoria, we can use the following
+projection</p>
 <pre class="r"><code>utm.prj &lt;- &quot;+proj=utm +zone=16 ellps=WGS84&quot;</code></pre>
-<p>One important thing to remember is that when you are specifying the options for the projection, don’t use any spacing. For example if you use the following the program / transformation would throw as error.</p>
+<p>One important thing to remember is that when you are specifying the options for
+the projection, don’t use any spacing. For example if you use the following the
+program / transformation would throw as error.</p>
 <pre class="r"><code># Bad example
 utm.prj &lt;- &quot;+proj = utm +zone = 16 ellps = WGS84&quot;</code></pre>
 </div>
@@ -368,7 +394,7 @@ utm.prj &lt;- &quot;+proj = utm +zone = 16 ellps = WGS84&quot;</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="http://janeshdevkota.com/2017/12/machine-learning-cards-from-twitter-in-r/" data-tooltip="Machine learning Cards from Twitter in R">
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://janeshdevkota.com/2018/02/extracting-water-quality-data-from-dataretrieval-package/" data-tooltip="Extracting water quality data from DataRetrieval Package">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -441,7 +467,7 @@ utm.prj &lt;- &quot;+proj = utm +zone = 16 ellps = WGS84&quot;</code></pre>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2017 Janesh Devkota. All Rights Reserved
+    &copy; 2020 Janesh Devkota. All Rights Reserved
   </span>
 </footer>
 
@@ -454,7 +480,7 @@ utm.prj &lt;- &quot;+proj = utm +zone = 16 ellps = WGS84&quot;</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="http://janeshdevkota.com/2017/12/machine-learning-cards-from-twitter-in-r/" data-tooltip="Machine learning Cards from Twitter in R">
+                <a class="post-action-btn btn btn--default tooltip--top" href="http://janeshdevkota.com/2018/02/extracting-water-quality-data-from-dataretrieval-package/" data-tooltip="Extracting water quality data from DataRetrieval Package">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -595,15 +621,18 @@ utm.prj &lt;- &quot;+proj = utm +zone = 16 ellps = WGS84&quot;</code></pre>
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="http://janeshdevkota.com/2017/12/machine-learning-cards-from-twitter-in-r/">
-                <h3 class="media-heading">Machine learning Cards from Twitter in R</h3>
+              <a class="link-unstyled" href="http://janeshdevkota.com/2018/02/extracting-water-quality-data-from-dataretrieval-package/">
+                <h3 class="media-heading">Extracting water quality data from DataRetrieval Package</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
-                  Dec 12, 2017
+                  Feb 2, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">I have been following Chris Albon on Twitter and have seen some really nice looking machine learning cards on his Twitter. While one can go to his website and buy all the cards he has produced. However, I was curious to see if I could download those flash cards in R. So, I started looking for a R package that would help to download the tweets by Chris Albon. I ended up using rtweet package for my analysis.</div>
+              <div class="media-content hide-xs font-merryweather">In this blog post, I will be showing some capabilities of dataRetrieval package by USGS to extract water quality data.
+To install the dataRetrieval package use the following command:
+devtools::install_github(repo = &quot;USGS-R/dataRetrieval&quot;) The main function I will be discussing is readWQPdata. The users can search the data using various options as shown below:
+ bBox = Bounding box that uses the coordinates of lower left corner and upper right corner lat / long = lat / long will be specified by the user if they are interested to see if any data is available within radial distance.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -644,25 +673,6 @@ I extensively use EFDC (Environmental Fluid Dynamic Code) model to do environmen
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="http://janeshdevkota.com/2017/11/fantasy-premier-league/">
-                <h3 class="media-heading">Fantasy Premier League Analysis in R</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Nov 11, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">This is my first blog on data science topics. In this blog post, I will show you how to import the data from fantasy premier league into R and perform exploratory data analysis. ————-
-The questions that came up in my mind before doing this analysis are:
-How has Wayne Rooney been performing for the last several years ?How do Romelu Lukaku, Sergio Aguero, Harry Kane line up side by side ?</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -670,7 +680,7 @@ How has Wayne Rooney been performing for the last several years ?How do Romelu 
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         4 posts found
+         3 posts found
       </p>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Janesh Devkota&#39;s Garden</title>
@@ -6,18 +6,21 @@
     <description>Recent content in Posts on Janesh Devkota&#39;s Garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://janeshdevkota.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Machine learning Cards from Twitter in R</title>
-      <link>http://janeshdevkota.com/2017/12/machine-learning-cards-from-twitter-in-r/</link>
-      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      <title>Extracting water quality data from DataRetrieval Package</title>
+      <link>http://janeshdevkota.com/2018/02/extracting-water-quality-data-from-dataretrieval-package/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://janeshdevkota.com/2017/12/machine-learning-cards-from-twitter-in-r/</guid>
-      <description>I have been following Chris Albon on Twitter and have seen some really nice looking machine learning cards on his Twitter. While one can go to his website and buy all the cards he has produced. However, I was curious to see if I could download those flash cards in R. So, I started looking for a R package that would help to download the tweets by Chris Albon. I ended up using rtweet package for my analysis.</description>
+      <guid>http://janeshdevkota.com/2018/02/extracting-water-quality-data-from-dataretrieval-package/</guid>
+      <description>In this blog post, I will be showing some capabilities of dataRetrieval package by USGS to extract water quality data.
+To install the dataRetrieval package use the following command:
+devtools::install_github(repo = &amp;quot;USGS-R/dataRetrieval&amp;quot;) The main function I will be discussing is readWQPdata. The users can search the data using various options as shown below:
+ bBox = Bounding box that uses the coordinates of lower left corner and upper right corner lat / long = lat / long will be specified by the user if they are interested to see if any data is available within radial distance.</description>
     </item>
     
     <item>
@@ -37,17 +40,6 @@ I extensively use EFDC (Environmental Fluid Dynamic Code) model to do environmen
       
       <guid>http://janeshdevkota.com/2017/12/2015-earthquake-in-nepal-data-analysis-and-implications/</guid>
       <description>In this blogpost, I am going to take the earthquake data from April 2015 to May 2016 throughout the World. Then we will process the data in usable form and look at the data on Nepal. Later, we will also dive into the casualties from this devastating earthquake. We will look at how many people died, got injured from which district, using ggplot2, wordcloud and leaflet package.</description>
-    </item>
-    
-    <item>
-      <title>Fantasy Premier League Analysis in R</title>
-      <link>http://janeshdevkota.com/2017/11/fantasy-premier-league/</link>
-      <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://janeshdevkota.com/2017/11/fantasy-premier-league/</guid>
-      <description>This is my first blog on data science topics. In this blog post, I will show you how to import the data from fantasy premier league into R and perform exploratory data analysis. ————-
-The questions that came up in my mind before doing this analysis are:
-How has Wayne Rooney been performing for the last several years ?How do Romelu Lukaku, Sergio Aguero, Harry Kane line up side by side ?</description>
     </item>
     
   </channel>
